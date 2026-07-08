@@ -10,13 +10,6 @@ public class BasePage {
 
     @Test
     public void firstTest() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-blink-features=AutomationControlled");
-//        options.setExperimentalOption("excludeSwitches", List.of("enable-automation"));
-//        options.setExperimentalOption("useAutomationExtension", false);
-//
-//        Configuration.browserCapabilities = options;
-//        Configuration.browser = "chrome";
 
         open("https://test.yoy.events/");
         $("body > nav > div > a:nth-child(5)").click();
