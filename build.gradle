@@ -9,7 +9,19 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21);
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
+    implementation 'net.datafaker:datafaker:2.2.2'
+    implementation("io.github.cdimascio:java-dotenv:5.2.2")
     // JUnit
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -18,7 +30,7 @@ dependencies {
     // Selenide
     testImplementation("com.codeborne:selenide:7.2.2")
 
-    // SLF4J (Simple implementation для тестів)
+    // SLF4J
     testImplementation("org.slf4j:slf4j-simple:2.0.13")
 }
 
