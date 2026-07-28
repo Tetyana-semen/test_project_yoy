@@ -28,7 +28,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // Selenide
-    implementation("com.codeborne:selenide:7.2.2")
+    implementation("com.codeborne:selenide:7.17.0")
 
     // SLF4J
     testImplementation("org.slf4j:slf4j-simple:2.0.13")

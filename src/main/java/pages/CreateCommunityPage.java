@@ -1,6 +1,7 @@
 package pages;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byTestId;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -10,17 +11,15 @@ import utils.CommunityData;
 
 public class CreateCommunityPage {
 
-    public final SelenideElement communityTitle = $("[data-testid='community-title']");
-    public final SelenideElement communityNameInput = $("[data-testid='community-name-input']");
-    public final SelenideElement communityDescriptionInput = $("[data-testid='community-description-input']");
-    public final SelenideElement communityCreateSubmit = $("[data-testid='community-create-submit']");
-    public final SelenideElement emailError = $("#signin-email-error");
-    public final SelenideElement formError = $("[data-testid='form-error']");
-    public final SelenideElement communityChatButton = $("[data-testid='community-chat-row']");
-    public final SelenideElement communityChatInput = $("[data-testid='chat-composer-body']");
-    public final SelenideElement communitySendButton = $("[data-testid='chat-composer-send']");
-    public final SelenideElement chatMessageBody = $("[data-testid='chat-message-body']");
-
+    public final SelenideElement communityTitle = $(byTestId("community-title"));
+    public final SelenideElement communityNameInput = $(byTestId("community-name-input"));
+    public final SelenideElement communityDescriptionInput = $(byTestId("community-description-input"));
+    public final SelenideElement communityCreateSubmit = $(byTestId("community-create-submit"));
+    public final SelenideElement formError = $(byTestId("form-error"));
+    public final SelenideElement communityChatButton = $(byTestId("community-chat-row"));
+    public final SelenideElement communityChatInput = $(byTestId("chat-composer-body"));
+    public final SelenideElement communitySendButton = $(byTestId("chat-composer-send"));
+    public final SelenideElement chatMessageBody = $(byTestId("chat-message-body"));
 
     public void verifyCommunityWithNameIsCreated(String communityName) {
         communityTitle.shouldHave(text(communityName));

@@ -28,6 +28,7 @@ public class BaseTest {
 
     static {
         Configuration.baseUrl = env.get("BASE_URL");
+        System.setProperty("selenide.test-id.attribute", "data-testid");
     }
 
     public void mockRateLimit() {
