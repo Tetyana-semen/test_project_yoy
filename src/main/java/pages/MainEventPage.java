@@ -17,7 +17,6 @@ public class MainEventPage {
     public final SelenideElement speakerSaveBtn = $(byId("speaker_save_btn"));
     public final SelenideElement nextBtn = $("div > button[type=submit]");
 
-
     public MainEventPage fillAndSubmitSettingEventForm(String eventTitle, String eventDescription, String eventCity, String eventLocation, String speakerName) {
         eventTitleInput.setValue(eventTitle);
         eventDescriptionInput.setValue(eventDescription);
