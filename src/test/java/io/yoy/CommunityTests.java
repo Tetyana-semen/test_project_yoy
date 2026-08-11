@@ -13,38 +13,41 @@ public class CommunityTests extends BaseTest {
 
     @BeforeEach
     void openAndSignInYoy() {
-        signInPage.open();
+        app.signInPage.open();
         mockRateLimit();
-        signInPage.signInWithEmailAndCode(testEmail, testCode);
-        mainPage.openMePage();
-        eventsMePage.clickCreateNewCommunityButton();
+        app.signInPage.signInWithEmailAndCode(testEmail, testCode)
+            .openMePage()
+            .clickCreateNewCommunityButton();
     }
 
     @Test
     public void shouldCreateNewCommunitySuccessfully() {
-        String communityName = createCommunityPage.createCommunity(generateRandom());
-        createCommunityPage.verifyCommunityWithNameIsCreated(communityName);
+        CommunityData data = generateRandom();
+
+        app.createCommunityPage.createCommunity(data)
+            .verifyCommunityWithNameIsCreated(data.name());
     }
 
     @Test
     public void shouldShowValidationErrorWhenUsingTheSameURLForCommunity() {
         CommunityData data = generateRandom();
 
-        createCommunityPage.createCommunity(data);
-        mainPage.openMePage();
-        eventsMePage.clickCreateNewCommunityButton();
-        createCommunityPage.createCommunity(data);
-        createCommunityPage.verifyErrorMessageForTheURL(ERROR_MESSAGE_FOR_URL);
+        app.createCommunityPage.createCommunity(data);
+
+        app.mainPage.openMePage()
+            .clickCreateNewCommunityButton()
+            .createCommunity(data)
+            .verifyErrorMessageForTheURL(ERROR_MESSAGE_FOR_URL);
     }
 
     @Test
     public void shouldSendAMessageInChat() {
         String newMessage = generateRandomString();
 
-        createCommunityPage.createCommunity(generateRandom());
-        createCommunityPage.clickOnCommunityChatButton();
-        createCommunityPage.createNewMessage(newMessage);
-        createCommunityPage.verifyNewMessagePresentInChat(newMessage);
+        app.createCommunityPage.createCommunity(generateRandom())
+            .clickOnCommunityChatButton()
+            .createNewMessage(newMessage)
+            .verifyNewMessagePresentInChat(newMessage);
     }
 
 }

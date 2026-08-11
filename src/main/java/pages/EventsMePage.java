@@ -13,12 +13,14 @@ public class EventsMePage {
     public final SelenideElement meDisplayName = $(byTestId("me-display-name"));
     public final SelenideElement createNewCommunityBtn = $(byText("Нова спільнота"));
 
-    public void verifyUserIsLoggedIn(String expectedText) {
+    public EventsMePage verifyUserIsLoggedIn(String expectedText) {
         meDisplayName.shouldHave(text(expectedText));
+        return this;
     }
 
-    public void clickCreateNewCommunityButton() {
-        waitUntilElementIsReady((createNewCommunityBtn));
+    public CreateCommunityPage clickCreateNewCommunityButton() {
+        waitUntilElementIsReady(createNewCommunityBtn);
         createNewCommunityBtn.click();
+        return new CreateCommunityPage();
     }
 }

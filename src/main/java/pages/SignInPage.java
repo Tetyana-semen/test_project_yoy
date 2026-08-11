@@ -17,31 +17,38 @@ public class SignInPage {
     public final SelenideElement emailError = $(byId("signin-email-error"));
     public final SelenideElement pickerViewTitle = $("#signin-picker-view h1");
 
-    public void open() {
+    public SignInPage open() {
         Selenide.open("signin");
+        return this;
     }
 
-    public void signInWithEmailAndCode(String email, String code) {
+    public MainPage signInWithEmailAndCode(String email, String code) {
         enterEmailAndSubmit(email);
         codeInput.setValue(code);
         codeSubmit.click();
+        return new MainPage();
     }
 
-    public void enterEmailAndSubmit(String email) {
+    public SignInPage enterEmailAndSubmit(String email) {
         emailInput.setValue(email);
         emailSubmit.click();
+        return this;
     }
 
-    public void clickChangeEmailButton() {
+    public SignInPage clickChangeEmailButton() {
         changeEmailBtn.click();
+        return this;
     }
 
-    public void verifyEmailValidationErrorMessage(String expectedText) {
+    public SignInPage verifyEmailValidationErrorMessage(String expectedText) {
         emailError.shouldHave(text(expectedText));
+        return this;
     }
 
-    public void verifyUserOnSignInPage(String expectedText) {
+    public SignInPage verifyUserOnSignInPage(String expectedText) {
         pickerViewTitle.shouldHave(text(expectedText));
+        return this;
     }
+
 
 }

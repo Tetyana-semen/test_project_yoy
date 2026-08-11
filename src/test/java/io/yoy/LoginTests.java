@@ -11,15 +11,15 @@ public class LoginTests extends BaseTest {
 
     @BeforeEach
     void openAndSignInYoy() {
-        signInPage.open();
+        app.signInPage.open();
         mockRateLimit();
     }
 
     @Test
     public void shouldLoginSuccessfullyWithValidEmailAndCode() {
-        signInPage.signInWithEmailAndCode(testEmail, testCode);
-        mainPage.openMePage();
-        eventsMePage.verifyUserIsLoggedIn(testEmail);
+        app.signInPage.signInWithEmailAndCode(testEmail, testCode)
+            .openMePage()
+            .verifyUserIsLoggedIn(testEmail);
     }
 
     @ParameterizedTest
@@ -28,15 +28,15 @@ public class LoginTests extends BaseTest {
         "testEmail@123, Некоректний формат email."
     })
     public void shouldShowValidationErrorsForInvalidEmailFormats(String email, String expectedMessage) {
-        signInPage.enterEmailAndSubmit(email);
-        signInPage.verifyEmailValidationErrorMessage(expectedMessage);
+        app.signInPage.enterEmailAndSubmit(email)
+            .verifyEmailValidationErrorMessage(expectedMessage);
     }
 
     @Test
     public void shouldAllowChangingEmailDuringSignIn() {
-        signInPage.enterEmailAndSubmit(testEmail);
-        signInPage.clickChangeEmailButton();
-        signInPage.verifyUserOnSignInPage(SIGN_IN_PICKER_VIEW_TITLE);
+        app.signInPage.enterEmailAndSubmit(testEmail)
+            .clickChangeEmailButton()
+            .verifyUserOnSignInPage(SIGN_IN_PICKER_VIEW_TITLE);
     }
 
 }

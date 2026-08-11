@@ -9,8 +9,10 @@ public class MainPage {
 
     public final SelenideElement mePageBtn = $(by("href", "/me"));
 
-    public void openMePage() {
+    public EventsMePage openMePage() {
         mePageBtn.click();
+        return new EventsMePage();
     }
+
 
 }
