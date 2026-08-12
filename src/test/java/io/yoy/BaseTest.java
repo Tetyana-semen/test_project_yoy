@@ -15,18 +15,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @ExtendWith({TextReportExtension.class})
 public class BaseTest {
 
-    protected static Application app = new Application();
-
-    String testEmail = env.get("TEST_EMAIL");
-    String testCode = env.get("TEST_CODE");
-    String testPhone = env.get("TEST_PHONE");
-
     public static Dotenv env = Dotenv.load();
 
     static {
         Configuration.baseUrl = env.get("BASE_URL");
         System.setProperty("selenide.test-id.attribute", "data-testid");
     }
+
+    public static Application app = new Application();
+
+    String testEmail = env.get("TEST_EMAIL");
+    String testCode = env.get("TEST_CODE");
+    String testPhone = env.get("TEST_PHONE");
 
     public void mockRateLimit() {
         String js = readFromFileNamed("mock/", "fix_rate_limit.js");

@@ -15,7 +15,7 @@ public class MainEventPage {
     public final SelenideElement addSpeakerBtn = $(byTestId("add-speaker-toggle"));
     public final SelenideElement newSpeakerName = $(byId("new_speaker_name"));
     public final SelenideElement speakerSaveBtn = $(byId("speaker_save_btn"));
-    public final SelenideElement nextBtn = $("body > div > div.fixed.bottom-0.left-0.right-0.bg-paper.border-t.border-line.z-20 > div > div > div > div > button");
+    public final SelenideElement nextBtn = $("div > button[type=submit]");
 
 
     public MainEventPage fillAndSubmitSettingEventForm(String eventTitle, String eventDescription, String eventCity, String eventLocation, String speakerName) {

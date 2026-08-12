@@ -72,7 +72,7 @@ public class WidgetPageTest extends BaseTest {
         String eventId = app.adminEventPage.getWidgetEventId();
         CreateWidgetPage.create(eventId);
         open(pageUri.toString());
-        app.iFramePage.clickRegisterBtn(eventId, generateRandomString(), generateRandomString(), testEmail, testPhone);
+        app.iFramePage.registerToEvent(eventId, generateRandomString(), generateRandomString(), testEmail, testPhone);
         app.iFramePage.verifyUserIsRegisteredForCurrentEvent(eventName);
 
     }

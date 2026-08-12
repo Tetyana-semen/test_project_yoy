@@ -23,7 +23,7 @@ public class IFramePage {
     public final SelenideElement embedRegistrationSuccess = $(byTestId("embed-registration-success"));
 
 
-    public IFramePage clickRegisterBtn(String eventId, String name, String lastname, String email, String phone) {
+    public IFramePage registerToEvent(String eventId, String name, String lastname, String email, String phone) {
         Selenide.switchTo().frame(
             $(String.format("iframe[src*='https://embed.test.yoy.events/e/%s']", eventId))
         );registerBtn.click();
