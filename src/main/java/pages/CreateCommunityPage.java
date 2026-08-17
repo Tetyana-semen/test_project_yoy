@@ -21,39 +21,44 @@ public class CreateCommunityPage {
     public final SelenideElement communitySendButton = $(byTestId("chat-composer-send"));
     public final SelenideElement chatMessageBody = $(byTestId("chat-message-body"));
 
-    public void verifyCommunityWithNameIsCreated(String communityName) {
+    public CreateCommunityPage verifyCommunityWithNameIsCreated(String communityName) {
         communityTitle.shouldHave(text(communityName));
+        return this;
     }
 
-    public void fillAndSubmitNewCommunityForm(String communityName, String communityDescription) {
+    public CreateCommunityPage fillAndSubmitNewCommunityForm(String communityName, String communityDescription) {
         communityNameInput.setValue(communityName);
         communityDescriptionInput.setValue(communityDescription);
         communityCreateSubmit.click();
+        return this;
     }
 
-    public void verifyErrorMessageForTheURL(String errorMessage) {
+    public CreateCommunityPage verifyErrorMessageForTheURL(String errorMessage) {
         formError.shouldHave(text(errorMessage));
+        return this;
     }
 
-    public void clickOnCommunityChatButton() {
+    public CreateCommunityPage clickOnCommunityChatButton() {
         communityChatButton.click();
+        return this;
     }
 
-    public void createNewMessage(String newMessage) {
+    public CreateCommunityPage createNewMessage(String newMessage) {
         communityChatInput.click();
         communityChatInput.setValue(newMessage);
         communitySendButton.click();
-
+        return this;
     }
 
-    public void verifyNewMessagePresentInChat(String newMessage) {
+    public CreateCommunityPage verifyNewMessagePresentInChat(String newMessage) {
         chatMessageBody.shouldBe(visible).shouldHave(text(newMessage));
-
+        return this;
     }
 
-    public String createCommunity(CommunityData data) {
+    public CreateCommunityPage createCommunity(CommunityData data) {
         fillAndSubmitNewCommunityForm(data.name(), data.description());
-        return data.name();
+        return this;
     }
+
 
 }
