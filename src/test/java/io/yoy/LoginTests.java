@@ -17,9 +17,9 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void shouldLoginSuccessfullyWithValidEmailAndCode() {
-        app.signInPage.signInWithEmailAndCode(testEmail, testCode)
-            .openMePage()
-            .verifyUserIsLoggedIn(testEmail);
+        app.signInPage.signInWithEmailAndCode(testEmail, testCode);
+        app.mainPage.openMePage();
+        app.mePage.verifyUserIsLoggedIn(testEmail);
     }
 
     @ParameterizedTest

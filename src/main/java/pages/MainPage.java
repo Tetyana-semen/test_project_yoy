@@ -8,10 +8,16 @@ import com.codeborne.selenide.SelenideElement;
 public class MainPage {
 
     public final SelenideElement mePageBtn = $(by("href", "/me"));
+    public final SelenideElement homeLink = $("a[aria-label='йой! головна']");
 
-    public EventsMePage openMePage() {
+    public MainPage openMePage() {
         mePageBtn.click();
-        return new EventsMePage();
+        return this;
+    }
+
+    public MainPage clickHomeLink() {
+        homeLink.click();
+        return this;
     }
 
 

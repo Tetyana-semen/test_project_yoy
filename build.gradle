@@ -22,15 +22,12 @@ tasks.withType(JavaCompile).configureEach {
 dependencies {
     implementation 'net.datafaker:datafaker:2.2.2'
     implementation("io.github.cdimascio:java-dotenv:5.2.2")
-    // JUnit
+    implementation 'org.assertj:assertj-core:3.27.6'
+    implementation("io.cucumber:cucumber-java:7.18.1")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // Selenide
     implementation("com.codeborne:selenide:7.17.0")
-
-    // SLF4J
     testImplementation("org.slf4j:slf4j-simple:2.0.13")
 
     compileOnly("org.projectlombok:lombok:1.18.46")

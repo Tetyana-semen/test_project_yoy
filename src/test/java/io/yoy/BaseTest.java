@@ -1,7 +1,8 @@
 package io.yoy;
 
-
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.Selenide.sleep;
 import static utils.FileUtils.readFromFileNamed;
 
 import com.codeborne.selenide.Configuration;
@@ -31,6 +32,10 @@ public class BaseTest {
     public void mockRateLimit() {
         String js = readFromFileNamed("mock/", "fix_rate_limit.js");
         executeJavaScript(js);
+    }
+
+    public void refreshPage() {
+        refresh();
     }
 
 }
