@@ -33,4 +33,5 @@ public class AdminEventPage {
         throw new NoSuchElementException("data-yoy-event not found in widget snippet");
     }
 
+
 }

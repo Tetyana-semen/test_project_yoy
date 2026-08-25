@@ -22,11 +22,11 @@ public class SignInPage {
         return this;
     }
 
-    public MainPage signInWithEmailAndCode(String email, String code) {
+    public SignInPage signInWithEmailAndCode(String email, String code) {
         enterEmailAndSubmit(email);
         codeInput.setValue(code);
         codeSubmit.click();
-        return new MainPage();
+        return this;
     }
 
     public SignInPage enterEmailAndSubmit(String email) {
