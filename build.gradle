@@ -28,8 +28,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("com.codeborne:selenide:7.17.0")
+    implementation("org.seleniumhq.selenium:selenium-java:4.46.0")
     testImplementation("org.slf4j:slf4j-simple:2.0.13")
-
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
     compileOnly("org.projectlombok:lombok:1.18.46")
     annotationProcessor("org.projectlombok:lombok:1.18.46")
 
