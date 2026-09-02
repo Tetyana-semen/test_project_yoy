@@ -37,7 +37,6 @@ public class EventTests extends BaseTest {
 
         ElementsCollection kyivEvents = app.eventsPage.getEventCards()
             .filterBy(attribute("data-event-city", eventCity));
-        System.out.println("kyivEvents: " + kyivEvents.texts());
         kyivEvents.shouldHave(sizeGreaterThan(0));
         kyivEvents.forEach(el ->
             assertThat(el.getAttribute("data-event-city")).isEqualTo(eventCity)
