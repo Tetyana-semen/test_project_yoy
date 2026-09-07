@@ -17,7 +17,7 @@ public record EventData(
             generateRandomString(),
             generateRandomDescription(),
             generateRandomString(),
-            generateRandomString(),
+            "UA",
             generateRandomString(),
             generateRandomString()
         );
